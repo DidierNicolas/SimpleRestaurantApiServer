@@ -16,8 +16,8 @@ pub async fn create_item_handler(body: MultipleItemRequest, db_pool: DBPool) -> 
     ))
 }
 
-pub async fn get_item_handler(id: i32, db_pool: DBPool) -> Result<impl Reply> {
-    let item = get_item(&db_pool, id)
+pub async fn get_item_handler(tid: i32, id: i32, db_pool: DBPool) -> Result<impl Reply> {
+    let item = get_item(&db_pool, tid, id)
         .await
         .map_err(|e| reject::custom(e))?;
     Ok(json(&ItemResponse::of(item)))
@@ -33,21 +33,31 @@ pub async fn list_items_handler(query: SearchQuery, db_pool: DBPool) -> Result<i
 }
 
 pub async fn update_item_handler(
+    tid: i32,
     id: i32,
     body: ItemUpdateRequest,
     db_pool: DBPool,
 ) -> Result<impl Reply> {
     Ok(json(&ItemResponse::of(
-        update_item(&db_pool, id, body)
+        update_item(&db_pool, tid, id, body)
             .await
             .map_err(|e| reject::custom(e))?,
     )))
 }
 
-pub async fn delete_item_handler(id: i32, db_pool: DBPool) -> Result<impl Reply> {
-    Ok(delete_item(&db_pool, id)
+pub async fn delete_item_handler(tid: i32, id: i32, db_pool: DBPool) -> Result<impl Reply> {
+    Ok(delete_item(&db_pool, tid, id)
         .await
         .map_err(|e| reject::custom(e))?
     )
 
+}
+
+pub async fn list_tables_handler(tid: i32, db_pool: DBPool) -> Result<impl Reply> {
+    let items = get_items_by_table_id(&db_pool, tid)
+        .await
+        .map_err(|e| reject::custom(e))?;
+    Ok(json::<Vec<_>>(
+        &items.into_iter().map(|t| ItemResponse::of(t)).collect(),
+    ))
 }

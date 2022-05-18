@@ -1,4 +1,3 @@
-mod table;
 mod item;
 mod db;
 mod error;
@@ -8,7 +7,6 @@ use mobc_postgres::{PgConnectionManager, tokio_postgres};
 use std::convert::Infallible;
 use tokio_postgres::NoTls;
 use warp::{Filter, Rejection};
-use table::handler as t_handler;
 use item::handler as i_handler;
 
 type Result<T> = std::result::Result<T, Rejection>;
@@ -22,11 +20,8 @@ async fn main() {
     db::init_db(&db_pool)
         .await
         .expect("database can be initialized");
-
-    let tables_routes = table::routes::tables_routes(db_pool.clone());
     let items_routes = item::routes::items_routes(db_pool.clone());
-    let routes = tables_routes
-        .or(items_routes)
+    let routes = items_routes
         .with(warp::cors().allow_any_origin())
         .recover(error::handle_rejection);
 
