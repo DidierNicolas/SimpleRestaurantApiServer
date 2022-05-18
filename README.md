@@ -66,4 +66,4 @@ You can find the client application [here](https://github.com/DidierNicolas/Simp
       }
      ```
  ## Client Side
- You can also use the [Client application](https://github.com/DidierNicolas/SimpleRestaurantApiClient) wich will randomly make request
+ You can also use the [Client application](https://github.com/DidierNicolas/SimpleRestaurantApiClient) which will randomly make requests
