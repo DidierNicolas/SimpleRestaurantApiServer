@@ -6,7 +6,7 @@ This application was created to resolve this problem : https://github.com/paidy/
 
 You can find the client application [here](https://github.com/DidierNicolas/SimpleRestaurantApiClient)
 <h2>Build & Launch the Application</h2>
-<p>To build and run this application, apply theses instructions</p>
+<p>To build and run this application, apply theses instructions in the project folder</p>
 <code>cargo build --bin simple_api_restaurant </code><br>
 <code>cargo run --bin simple_api_restaurant</code>
 
