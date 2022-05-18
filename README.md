@@ -11,6 +11,8 @@ You can find the client application [here](https://github.com/DidierNicolas/Simp
 <code>cargo run --bin simple_api_restaurant</code>
 
 ## Prerequisites
+- Rust
+  This project was build in Rust, you need to install the [last version](https://www.rust-lang.org/learn/get-started) to build and launch it
 - Postgresql Database
   <br><br>For this project I am using PostGreSql 14 make sure to get the last version [Here](https://www.postgresql.org/download/)
 - Server configuration
@@ -26,7 +28,7 @@ You can find the client application [here](https://github.com/DidierNicolas/Simp
       port = "5432"
       db_name = "postgres"
   ````
-  The db schema will be delete and created each time you lunch the application, if you want to keep the data, delete the drop line [here](https://github.com/DidierNicolas/SimpleRestaurantApiServer/blob/master/sql/db.sql)
+  The db schema will be delete and created each time you launch the application, if you want to keep the data, delete the drop line [here](https://github.com/DidierNicolas/SimpleRestaurantApiServer/blob/master/sql/db.sql)
   
 ## Curl testing
 - Get all items <br>
