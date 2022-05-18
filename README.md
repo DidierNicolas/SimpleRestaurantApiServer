@@ -38,7 +38,7 @@ You can find the client application [here](https://github.com/DidierNicolas/Simp
 - Get a specific item from a specific table <br>
  <code> curl -X GET -H 'content-type: application/json;' http://localhost:8080/tables/tid/iid </code>
 - Create new item(s)
- <code> curl -X GET -H 'content-type: application/json;' http://localhost:8080/items {json_string} </code>
+ <code> curl -X GET -H 'content-type: application/json;' http://localhost:8080/items -d {json_string}</code>
    - JSON Example 
      ```json
      {
