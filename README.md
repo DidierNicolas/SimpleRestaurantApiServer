@@ -28,7 +28,7 @@ You can find the client application [here](https://github.com/DidierNicolas/Simp
       port = "5432"
       db_name = "postgres"
   ````
-  The db schema will be deleted and created each time you launch the application, if you want to keep the data, delete the drop line [here](https://github.com/DidierNicolas/SimpleRestaurantApiServer/blob/master/sql/db.sql)
+  The db schema will be deleted and created each time you launch the application. If you want to keep the data, delete the drop line [here](https://github.com/DidierNicolas/SimpleRestaurantApiServer/blob/master/sql/db.sql)
   
 ## Curl testing
 - Get all items <br>
